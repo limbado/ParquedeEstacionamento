@@ -38,8 +38,6 @@ def marcar_pago():
             return
     print("Não encontrada ou já paga.")
 
-def marcar_pago(): #funçao para marcar os que ja pagaram, tenho que fazer com que peça a matricula e que calcule as horas e preço
-
 def listar_nao_pagos(): #função para marcar os que nao pagaram, tenho que fazer com que peça a matricula e mostre as horas e quando nao estao pagos
 
 def remover_carro(): #função para removar os careros que ja pagaram e trocar automaticamente para None
