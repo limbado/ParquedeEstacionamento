@@ -109,7 +109,6 @@ class MaximizaJanela:
         output = scrolledtext.ScrolledText(self.frame, width=100, height=40, font=("Courier", 10))
         output.pack(pady=10)
 
-
 if __name__ == '__main__':
     w = MaximizaJanela()
     w.tk.mainloop()
