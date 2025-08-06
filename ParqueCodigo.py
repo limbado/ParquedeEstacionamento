@@ -38,10 +38,57 @@ def marcar_pago():
             return
     print("Não encontrada ou já paga.")
 
-def listar_nao_pagos(): #função para marcar os que nao pagaram, tenho que fazer com que peça a matricula e mostre as horas e quando nao estao pagos
+def listar_nao_pagos():
+    achou = False
+    for i, info in lugares.items():
+        if info and not info['pago']:
+            print(f"Lugar {i}: {info['matricula']} (Entrada: {info['entrada'].strftime('%H:%M')})")
+            achou = True
+    if not achou:
+        print("Todos pagos.")
 
-def remover_carro(): #função para removar os careros que ja pagaram e trocar automaticamente para None
+def remover_carro():
+    mat = input("Matrícula: ").upper()
+    for i, info in lugares.items():
+        if info and info['matricula'] == mat:
+            if not info['pago']:
+                print("⚠️ Ainda não pagou.")
+            lugares[i] = None
+            print(f"{mat} removido do lugar {i}.")
+            return
+    print("Matrícula não encontrada.")
 
-def mostrar_receita(): #função para mostrar quanto o parque deu no total (acrescentar o diario e mensal, ou semanal até)
+def mostrar_receita():
+       print(f"Receita total: {receita:.2f} €")
+       
+def menu():
+    while True:
+        print("\n=== MENU PARQUE ===")
+        print("1. Ver lugares")
+        print("2. Registar carro")
+        print("3. Marcar pago")
+        print("4. Ver não pagos")
+        print("5. Remover carro")
+        print("6. Ver receita")
+        print("0. Sair")
 
-def menu(): 
+        op = input("Escolha: ")
+
+        if op == '1':
+            mostrar_lugares()
+        elif op == '2':
+            registar_carro()
+        elif op == '3':
+            marcar_pago()
+        elif op == '4':
+            listar_nao_pagos()
+        elif op == '5':
+            remover_carro()
+        elif op == '6':
+            mostrar_receita()
+        elif op == '0':
+            break
+        else:
+            print("Opção inválida.")
+
+menu()
