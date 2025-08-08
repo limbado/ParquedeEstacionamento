@@ -76,7 +76,7 @@ def remover_carro():
             lugares[i] = None
             output.insert(tk.END, f"{mat} removido do lugar {i}.\n")
             return
-    output.insert(tk.END, "Matrícula não encontrada.\n")
+    output.insert(tk.END, "Matrículaa não encontrada.\n")
 
 def mostrar_receita():
     output.insert(tk.END, f"Receita total: {receita_total:.2f} €\n")
